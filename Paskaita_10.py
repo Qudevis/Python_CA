@@ -94,3 +94,5 @@ vehicles = [vehicle,land_veh,my_car]
 for v in vehicles:
     if isinstance(v, LandVehicle):
         v.Move()
+
+print("Mano pridejimas")
