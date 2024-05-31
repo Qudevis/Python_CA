@@ -100,3 +100,5 @@ print("Mano pridejimas")
 print("Mano kitas pridejimas")
 
 print("Hello")
+
+print("")
