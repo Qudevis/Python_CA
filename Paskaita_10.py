@@ -98,3 +98,5 @@ for v in vehicles:
 print("Mano pridejimas")
 
 print("Mano kitas pridejimas")
+
+print("Hello")
