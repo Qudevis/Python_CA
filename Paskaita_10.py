@@ -96,3 +96,5 @@ for v in vehicles:
         v.Move()
 
 print("Mano pridejimas")
+
+print("Mano kitas pridejimas")
