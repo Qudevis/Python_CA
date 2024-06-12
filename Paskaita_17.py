@@ -19,4 +19,5 @@ class Person(Base):
         self.age = age
     def __repr__(self):
         return f"{self.name}|{self.last_name}"
-
+    
+Base.metada.create_all(engine)
