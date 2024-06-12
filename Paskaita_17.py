@@ -11,6 +11,7 @@ class Person(Base):
     name = sqla.Column("Name",sqla.String)
     last_name = sqla.Column("Last_Name",sqla.String)
     age = sqla.Column("Age",sqla.Integer)
+    Gender = sqla.Column(sqla.String(1))
 
     def __init__(self,name,last_name,age): # cia jau kalba eina apie pati objekta Person
         self.name = name
