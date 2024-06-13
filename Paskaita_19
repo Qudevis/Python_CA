@@ -1,0 +1,71 @@
+from tkinter import *
+
+main_window = Tk(className="My Application")
+
+main_window.geometry("500x500")
+
+# label1 = Label(main_window, text="Hello this is my first GUI app")
+# label1.pack()
+
+# label2 = Label(main_window, text="Hello this is my first GUI app")
+# label2.pack()
+
+# label3 = Label(main_window, text="Hello this is my first GUI app")
+# label3.pack()
+
+
+# header = Frame(main_window)
+# header.pack()
+
+# button1 = Button(header,text="Press me",bg="blue")
+# button1.pack()
+
+# footer = Frame(main_window)
+
+# footer.pack(side=BOTTOM,fill='both')
+
+# button2 = Button(footer,text="Press me at the bottom")
+
+# button2.pack(side=LEFT,fill='both')
+
+# button3 = Button(footer,text="Press me at the bottom")
+
+# button3.pack()
+
+
+# button1 = Button(main_window,text="Press me",bg="red")
+# button1.pack(fill='both')
+
+def print_initials():
+    print(f"{input_field.get()} | {input_field2.get()}")
+
+def right_click(event):
+    print("Right click")
+    label1["text"] = "The text has changed"
+
+label1 = Label(main_window,text="Please enter your name")
+input_field = Entry(main_window)
+
+label2 = Label(main_window,text="Please enter your Last name")
+input_field2 = Entry(main_window)
+
+submit_button = Button(main_window,text="Submit",command=print_initials) 
+
+checkbox = Checkbutton(main_window,text="Check here")
+
+label1.grid(row=0,column=0)
+input_field.grid(row=1,column=0,sticky=NW)
+
+label2.grid(row=0,column=1)
+input_field2.grid(row=1,column=1)
+
+
+submit_button.grid(row=2,columnspan=2, sticky=EW)
+
+checkbox.grid(row=0,column=2)
+
+submit_button.bind("<Button-3>",right_click)
+# input_field2.bind("<Enter>", lambda x: print("Hi"))
+
+
+main_window.mainloop()
