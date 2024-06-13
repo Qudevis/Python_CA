@@ -63,23 +63,78 @@
 # print(C.y)
 
 
-class Student:
-    def __init__(self):
-        self._score = 0
+# class Student:
+#     def __init__(self):
+#         self._score = 0
 
+#     @property
+#     def score(self):
+#         return self._score
+
+#     @score.deleter
+#     def score(self):
+#         del self._score
+
+# Mark = Student()
+# text = "Hi"
+# print(Mark.score)
+
+# # Mark._score = 18 NENAUDOJAMAS
+
+# print(Mark.score)
+
+
+
+class Temperature:
+    def __init__(self, celsius):
+        self._celsius = celsius
+ 
     @property
-    def score(self):
-        return self._score
+    def celsius(self):
+        return self._celsius 
+   
+    @celsius.setter
+    def celsius(self, value):
+        self._celsius = value # self.celsius = 15 ... aha man reikia nueiti i setteri  self.celsius = 15 ... aha man reikia nueiti i setteri  self.celsius = 15 ... aha man reikia nueiti i setteri self.celsius = 15 ... aha man reikia nueiti i setteri 
+ 
+    @property
+    def fahrenheit(self):
+        return self._celsius * 9 / 5 + 32
+   
+    @fahrenheit.setter
+    def fahrenheit(self, value):
+        self._fahrenheit = (value -32) / 1.8
+ 
+ 
+temp = Temperature(20)
+text = "My text"
+print(temp.celsius)
 
-    @score.deleter
-    def score(self):
-        del self._score
+print(temp.fahrenheit)
 
-Mark = Student()
-text = "Hi"
-print(Mark.score)
+temp.celsius = 15
 
-# Mark._score = 18 NENAUDOJAMAS
+my_list = [1,6,98,7,8]
+print(my_list)
 
-print(Mark.score)
+
+def sum(a,b):
+    print("Hello")
+    print("I am sum")
+    return a + b
+
+answer = sum(7,6)
+
+print(sum(7,9))
+
+
+for i in range(-5,20):
+    print("Your number is nice and it is: ")
+    print(i)
+
+
+
+print("End")
+
+import Paskaita_17
 
