@@ -36,8 +36,8 @@ main_window.geometry("500x500")
 # button1 = Button(main_window,text="Press me",bg="red")
 # button1.pack(fill='both')
 
-def print_initials():
-    print(f"{input_field.get()} | {input_field2.get()}")
+def print_initials(inp, inp2):
+    print(f"{inp.get()} | {inp2.get()}")
 
 def right_click(event):
     print("Right click")
@@ -49,7 +49,7 @@ input_field = Entry(main_window)
 label2 = Label(main_window,text="Please enter your Last name")
 input_field2 = Entry(main_window)
 
-submit_button = Button(main_window,text="Submit",command=print_initials) 
+submit_button = Button(main_window,text="Submit",command=lambda: print_initials(input_field,input_field2)) 
 
 checkbox = Checkbutton(main_window,text="Check here")
 

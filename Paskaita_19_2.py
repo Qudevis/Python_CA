@@ -17,7 +17,20 @@ box.insert(END,*numbers)
 sb.pack(side=RIGHT, fill=Y)
 box.pack(side=LEFT)
 
+def print_list_item(x):
+    print(box.curselection())
+    print(box.curselection()[0])
+    print(numbers[box.curselection()[0]])
+    pass
+
 box.bind("<Button-3>",lambda x: print(numbers[box.curselection()[0]]))
+
+def sum(a,b):
+    print(a+b)
+
+but = Button(main_window,command= lambda: sum(4,9))
+
+but.pack()
 
 main_window.mainloop()
 
