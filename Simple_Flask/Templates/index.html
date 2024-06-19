@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Index Page</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Website</h1>
+        <p>Your go-to place for all things interesting</p>
+    </header>
+    {% if err != None %}
+    <h1><p style="color: #cb0000 ">{{err}}</p></h1>
+    {% endif %}
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="{{ url_for('enter_name') }}" class="nav-link">Name Form</a></li>
+            <li><a href="/Name">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home">
+            <h2>Home</h2>
+            <p>This is the home section where you can find the latest updates.</p>
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <p>Learn more about us in this section.</p>
+        </section>
+        <section id="services">
+            <h2>Services</h2>
+            <p>Discover the services we offer.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Get in touch with us through this section.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>

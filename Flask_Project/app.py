@@ -14,6 +14,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(255))
     email = db.Column(db.String(255))
+    age = db.Column(db.Integer())
 
 @app.route('/')
 def index():
@@ -22,7 +23,7 @@ def index():
 
 @app.route('/add_user', methods=['GET', 'POST'])
 def add_user():
-    if request.method == 'POST':
+    if request.method == "POST":
         username = request.form['username']
         email = request.form['email']
         age = request.form['age']
@@ -39,6 +40,7 @@ def delete_users():
     db.drop_all()
     db.create_all()
     return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
