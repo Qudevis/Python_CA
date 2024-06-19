@@ -1,8 +1,31 @@
 from flask import Flask, render_template, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
+import os
 
-print(__name__)
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'Database/main_db.db')
+
+db = SQLAlchemy(app)
+
+
+class Vartotojas(db.Model):
+    __tablename__ = "Users"
+
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String)
+    age = db.Column(db.Integer)
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+
+with app.app_context():
+    db.create_all()
+
 
 @app.route("/")
 def home():
@@ -29,6 +52,25 @@ def old_enter_name():
 @app.route("/NameVeryGoodName", methods = ["GET"])
 def enter_name():
     return render_template("name_form.html")
+
+@app.route("/CreateUser", methods = ["GET"])
+def create_get():
+    return render_template("Create_User.html")
+
+
+@app.route("/CreateUser", methods = ["POST"])
+def create_post():
+    try:
+        vardas = request.form["firstName"]
+        age = request.form["age"]
+        user = Vartotojas(vardas,age)
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for("home", error="Everything was okay"))
+    except:
+        return redirect(url_for("home", error="User was not inserted"))
+
+
 
 @app.route("/Name_Submit", methods = ["POST"])
 def name_print():
