@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import os
+from flask_migrate import Migrate
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -9,6 +10,8 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'Database/main_db.db')
 
 db = SQLAlchemy(app)
+
+migrate = Migrate(app,db)
 
 
 class Vartotojas(db.Model):
@@ -22,9 +25,6 @@ class Vartotojas(db.Model):
         self.name = name
         self.age = age
 
-
-with app.app_context():
-    db.create_all()
 
 
 @app.route("/")
@@ -78,5 +78,5 @@ def name_print():
     print(f"Hello your name is: {vardas}")
     return ""
 
-
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
